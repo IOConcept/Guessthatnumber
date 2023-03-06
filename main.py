@@ -1,6 +1,8 @@
 import random
 
+attempts = 0
 while True:
+    print("Guess the Number")
     name = input("Enter your name: ")
     print(f"Hello, {name}! Let's play Guess the Number.")
 
@@ -24,7 +26,6 @@ while True:
         option = "1 to 1000000"
 
     leaderboard = []
-    attempts = 0
     cheat = False
     number = random.randint(range_start, range_end)
 
@@ -40,6 +41,12 @@ while True:
             guess = int(guess)
         except ValueError:
             print("Invalid input, try again.")
+            attempts -= 1 # Decrement attempts count
+            continue
+
+        if guess < range_start or guess > range_end:
+            print(f"Invalid guess. Guess must be between {range_start} and {range_end}")
+            attempts -= 1 # Decrement attempts count
             continue
 
         if guess == number:
@@ -47,6 +54,7 @@ while True:
             if cheat:
                 print("But you cheated!")
             leaderboard.append((name, attempts, option))
+            attempts = 0 # Reset attempts count for next game
             break
         elif guess > number:
             print("Lower")
@@ -66,14 +74,3 @@ while True:
     for entry in leaderboard:
         print(f"{entry[0]} guessed the number in {entry[1]} attempts for option {entry[2]}")
     print()
-
-    restart_choice = input("Do you want to play again? (y/n): ")
-    if restart_choice.lower() != 'y':
-        print("Thanks for playing!")
-        break
-
-    file_name = f"{name}_{choice}.txt"
-    with open(file_name, "w") as f:
-        for entry in leaderboard:
-            f.write(f"{entry[0]}, {entry[1]}, {entry[2]}\n")
-    print(f"Leaderboard saved to {file_name}")
