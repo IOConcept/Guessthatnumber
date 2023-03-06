@@ -1,6 +1,5 @@
 import random
 
-attempts = 0
 while True:
     print("Guess the Number")
     name = input("Enter your name: ")
@@ -26,6 +25,7 @@ while True:
         option = "1 to 1000000"
 
     leaderboard = []
+    attempts = 0
     cheat = False
     number = random.randint(range_start, range_end)
 
@@ -39,14 +39,10 @@ while True:
 
         try:
             guess = int(guess)
+            if guess < range_start or guess > range_end:
+                raise ValueError
         except ValueError:
-            print("Invalid input, try again.")
-            attempts -= 1 # Decrement attempts count
-            continue
-
-        if guess < range_start or guess > range_end:
-            print(f"Invalid guess. Guess must be between {range_start} and {range_end}")
-            attempts -= 1 # Decrement attempts count
+            print(f"Invalid input. Enter a valid number between {range_start} and {range_end}.")
             continue
 
         if guess == number:
@@ -54,7 +50,6 @@ while True:
             if cheat:
                 print("But you cheated!")
             leaderboard.append((name, attempts, option))
-            attempts = 0 # Reset attempts count for next game
             break
         elif guess > number:
             print("Lower")
@@ -69,6 +64,8 @@ while True:
                 print(f"The number is {number}")
             else:
                 print("Okay, keep guessing!")
+        
+        print(f"You have made {attempts} attempts so far.")
 
     print("Leaderboard:")
     for entry in leaderboard:
