@@ -1,5 +1,10 @@
 # Guess That Number
-This is a number guessing game where the player has to guess a randomly generated number within a specified range. The player can choose from three range options: 1 to 1000, 1 to 100000, or 1 to 1000000. The game keeps track of the player's score, which is the number of attempts it takes for them to correctly guess the number. If the player is unable to guess the number within 10 attempts, they have the option to cheat by getting the correct answer. However, if the player chooses to cheat, their score will not be recorded on the leaderboard. Invalid inputs are caught and do not count towards the player's score. The game also displays a leaderboard of the top scores for each range option.
+here's a brief summary of the current version of the game:
+
+Guess the Number is a game where the player tries to guess a randomly generated number within a specified range. The player is prompted to enter their name and choose a range from three options: 1-1000, 1-100000, or 1-1000000. The game then generates a random number within that range and prompts the player to make a guess. The player has up to 10 attempts to guess the number, and if they fail, they can choose to cheat and reveal the number. The game keeps track of the player's score by recording the number of attempts it takes to guess the number. The player can play the game multiple times, and the leaderboard keeps track of the top scores for each range. The game can be played as a dialog box or on the website itself.
+
+
+MARKETING
 
 Welcome to "Guess the Number"!
 
