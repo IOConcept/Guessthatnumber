@@ -4,3 +4,7 @@ This code is a Python program that lets the user play a number guessing game. Th
 The program uses a while loop to keep the game going until the user chooses to quit. Within the while loop, there are nested while loops that handle the guessing of the number and the cheating option.
 
 Overall, the code is well-organized and easy to read. The use of functions could make it more modular and easier to maintain, but that is not strictly necessary for a program of this size. One potential issue is that the program does not validate the user's input when selecting the range of numbers to guess from, which could lead to unexpected behavior if the user enters an invalid choice.
+
+In this version of the code, we initialize an empty leaderboard list at the beginning of the program. When a user successfully guesses the number, we append a tuple containing their name and number of attempts to the leaderboard. We then sort the leaderboard by number of attempts and print it out. We use a lambda function to sort the list of tuples by the second element (the number of attempts).
+
+The leaderboard is printed out after each successful guess, so the user can see their ranking compared to other players. The leaderboard is reset each time the program is run, so it only tracks scores for the current session.
